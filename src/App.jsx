@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Monsters from "./pages/monsters";
+import Monsters from "./pages/Monsters";
 import Weapons from "./pages/Weapons";
 import Armors from "./pages/Armors";
 
