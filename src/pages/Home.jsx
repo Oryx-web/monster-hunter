@@ -11,7 +11,7 @@ export default function Home() {
             <img className="w-50" src="/src/assets/icons/MHW-Rathalos_Icon.svg" alt="Monsters_image" loading="lazy" />
             <img className="w-50" src="/src/assets/icons/MHW-Rathian_Icon.svg" alt="Monsters_image" loading="lazy" />
           </div>
-          <a href="/monsters" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
+          <a href="/monster-hunter/monsters" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
             View Monsters
           </a>
         </div>
@@ -30,7 +30,7 @@ export default function Home() {
             <img className="w-20 m-1" src="/src/assets/home/Switch_Axe_Icon_White.svg" alt="Weapons_image" loading="lazy" />
             <img className="w-20 m-1" src="/src/assets/home/Sword_and_Shield_Icon_White.svg" alt="Weapons_image" loading="lazy" />
           </div>
-          <a href="/weapons" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
+          <a href="/monster-hunter/weapons" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
             View Weapons
           </a>
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
             <img className="w-20 m-1" src="/src/assets/home/Waist_Icon_White.svg" alt="Weapons_image" loading="lazy" />
             <img className="w-20 m-1 col-start-3" src="/src/assets/home/Leg_Icon_White.svg" alt="Weapons_image" loading="lazy" />
           </div>
-          <a href="/armors" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
+          <a href="/monster-hunter/armors" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
             View Armors
           </a>
         </div>
