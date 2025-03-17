@@ -8,10 +8,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/monsters" element={<Monsters />} />
-        <Route path="/weapons" element={<Weapons />} />
-        <Route path="/armors" element={<Armors />} />
+        <Route path="/monster-hunter" element={<Home />} />
+        <Route path="/monster-hunter/monsters" element={<Monsters />} />
+        <Route path="/monster-hunter/weapons" element={<Weapons />} />
+        <Route path="/monster-hunter/armors" element={<Armors />} />
       </Routes>
     </Router>
   );
