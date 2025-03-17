@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.text-outline {
+  text-shadow:
+    -1.55px -1.55px 0 #000,  
+     1.55px -1.55px 0 #000,
+    -1.55px  1.55px 0 #000,
+     1.55px  1.55px 0 #000;
+}
+
+.text-outline-armor {
+  text-shadow:
+    -1.55px -1.55px 0 #000,  
+     1.55px -1.55px 0 #000,
+    -1.55px  1.55px 0 #000,
+     1.55px  1.55px 0 #000;
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px rgba(0, 163, 0, 0.4), 0 0 10px rgba(0, 255, 0, 0.2); background-color: rgba(0, 255, 0, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(0, 194, 0, 0.658), 0 0 30px rgba(0, 190, 0, 0.37); background-color: rgba(1, 216, 1, 0.295); }
+  100% { box-shadow: 0 0 5px rgba(0, 163, 0, 0.4), 0 0 10px rgba(0, 255, 0, 0.2); background-color: rgba(0, 255, 0, 0.2); }
+}
+
+.glow{
+  animation: glowing 1.5s infinite ease-in-out;
+}
+
+@keyframes glowingSidebar {
+  0% { filter: drop-shadow(0 0 10px rgba(255, 166, 0, 0.699)); }
+  50% { filter: drop-shadow(0 0 25px rgb(255, 181, 44)); }
+  100% { filter: drop-shadow(0 0 10px rgba(255, 166, 0, 0.699)); }
+}
+
+/* Efecto hover */
+.hover\:animate-glow:hover {
+  animation: glowingSidebar 1.5s infinite alternate ease-in-out;
+}
+
+.hover\:animate-glow:hover p {
+  opacity: 1;
+  color: rgb(255, 181, 44);
+  font-size: larger;
+  text-shadow:
+    -1.55px -1.55px 0 #000,  
+    1.55px -1.55px 0 #000,
+    -1.55px  1.55px 0 #000,
+    1.55px  1.55px 0 #000;
+  transition: transform 0.2s ease;
+  transform: translateY(-5px);
+}
+
+.hover\:animate-glow:hover img {
+  transition: transform 0.2s ease;
+  transform: scale(1.5);
+}
+
+/* Efecto hover */
+.hover\:selected-glow {
+  animation: glowingSidebar 1.5s infinite alternate ease-in-out;
+}
+
+.hover\:selected-glow p {
+  opacity: 1;
+  color: rgb(255, 181, 44);
+  font-size: larger;
+  text-shadow:
+    -1.55px -1.55px 0 #000,  
+    1.55px -1.55px 0 #000,
+    -1.55px  1.55px 0 #000,
+    1.55px  1.55px 0 #000;
+  transition: transform 0.2s ease;
+  transform: translateY(-5px);
+}
+
+.hover\:selected-glow img {
+  transition: transform 0.2s ease;
+  transform: scale(1.5);
+}
+
+.mask-image{
+  mask-image: linear-gradient(
+    transparent -100%,
+    black 50%,
+    transparent 150%
+  );
+}
+
+.mask-image-weapons{
+  mask-image: linear-gradient(
+    transparent -100%,
+    black 50%,
+    transparent 150%
+  );
+}
+
+.armor{
+  transform: rotate(-45deg);
+}
+
+.armor-icon{
+  border: #ffffff 1px solid;
+  transform: rotate(45deg);
+}
+
+.two{
+  height: 7rem;
+}
+
+.three{
+  height: 15rem;
+}
+
+.weapon-card{
+  text-align: center;
+  width: fit-content;
+  background-color: #1a1a1a;
+}
