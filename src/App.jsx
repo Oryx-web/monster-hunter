@@ -9,9 +9,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/monster-hunter" element={<Home />} />
-        <Route path="/monster-hunter/monsters" element={<Monsters />} />
-        <Route path="/monster-hunter/weapons" element={<Weapons />} />
-        <Route path="/monster-hunter/armors" element={<Armors />} />
+        <Route path="/monsters" element={<Monsters />} />
+        <Route path="/weapons" element={<Weapons />} />
+        <Route path="/armors" element={<Armors />} />
       </Routes>
     </Router>
   );
