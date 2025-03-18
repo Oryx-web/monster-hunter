@@ -55,7 +55,7 @@ export default function ArmorSkills({ selectedPiece, getArmorIcon, getWeaknessIc
                                 <div className='flex justify-between'>
                                     <p className='py-0.5 pl-2.5 flex'>
                                         {[...Array(skill.level)].map((_, i) => (
-                                            <img key={i} className="w-5 h-5" src={status["/status/Star.svg"]} alt="star" loading='lazy'/>
+                                            <img key={i} className="w-5 h-5" src={status("Star.svg")} alt="star" loading='lazy'/>
                                         ))}
                                     </p>
                                     <p className="flex items-center pr-5 text-white text-outline-armor">Level {skill.level}</p>
