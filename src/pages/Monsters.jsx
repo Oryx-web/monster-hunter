@@ -33,7 +33,6 @@ export default function Monsters() {
     const matchingIconPath2 = `MHWI-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
 
     icons(matchingIconPath1) ?  isDLC = false : isDLC = true;
-    console.log(isDLC);
     return isDLC ? icons(matchingIconPath2) : icons(matchingIconPath1);
   };
 
