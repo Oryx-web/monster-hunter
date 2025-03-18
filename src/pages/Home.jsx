@@ -8,8 +8,8 @@ export default function Home() {
       <div className="flex flex-row items-center justify-items-center">
         <div className="items-center justify-items-center m-5">
           <div className="grid grid-cols-2 m-5">
-            <img className="w-50" src={`${import.meta.env.BASE_URL}/icons/MHW-Rathalos_Icon.svg`} alt="Monsters_image" loading="lazy" />
-            <img className="w-50" src={`${import.meta.env.BASE_URL}/icons/MHW-Rathian_Icon.svg`} alt="Monsters_image" loading="lazy" />
+            <img className="w-32" src={`${import.meta.env.BASE_URL}/icons/MHW-Rathalos_Icon.svg`} alt="Monsters_image" loading="lazy" />
+            <img className="w-32" src={`${import.meta.env.BASE_URL}/icons/MHW-Rathian_Icon.svg`} alt="Monsters_image" loading="lazy" />
           </div>
           <a href="/monster-hunter/#/monsters" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
             View Monsters

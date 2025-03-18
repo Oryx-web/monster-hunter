@@ -48,7 +48,7 @@ export default function ArmorSkills({ selectedPiece, getArmorIcon, getWeaknessIc
                 <ul className="flex flex-col justify-between justify-items-center gap-1 text-white">
                     {selectedPiece.skills?.map((skill, index) => (
                         <div key={index}>
-                        <li className="py-2.5 pl-5 gap-3 flex items-center rounded-md mask-image">
+                        <li className="py-2.5 px-5 gap-3 flex items-center rounded-md mask-image">
                             <p className="bg-black w-10 h-10"></p>
                             <div className="w-1/1">
                                 <p className="py-0.5 pl-2.5 bg-[#534d4d79] flex items-center border-b-2 border-dashed border-[#d0d85f57] text-white text-outline-armor rounded-md">{skill.skillName}</p>
