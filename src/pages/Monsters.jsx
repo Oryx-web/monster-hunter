@@ -32,6 +32,7 @@ export default function Monsters() {
     const matchingIconPath1 = `MHW-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
     const matchingIconPath2 = `MHWI-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
 
+    console.log(icons(matchingIconPath1));
     return matchingIconPath1 ? icons(matchingIconPath1) : icons(matchingIconPath2);
   };
 
