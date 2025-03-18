@@ -28,7 +28,7 @@ export default function Monsters() {
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
-    const isDLC = false;
+    let isDLC = false;
     const matchingIconPath1 = `MHW-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
     const matchingIconPath2 = `MHWI-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
 
