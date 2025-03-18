@@ -18,11 +18,9 @@ export default function Weapons() {
     const getWeaknessIcon = (weakness) => {
         if (!weakness) return "";
     
-        let matchingIconPath = Object.keys(status).find(path =>
-          path.toLowerCase().includes(`-${weakness.toLowerCase()}_mhw_icon`)
-        );
+        const matchingIconPath = `Status_Effect-${weakness}_MHW_Icon.svg`;
     
-        return matchingIconPath ? status[matchingIconPath].default : "/icons/default.svg";
+        return matchingIconPath ? status(matchingIconPath) : "/icons/default.svg";
       };
 
     useEffect(() => {
