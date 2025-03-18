@@ -16,7 +16,7 @@ export default function WeaponsDetails({ selectedWeapon, getWeaknessIcon }) {
             </li>
             <li className="pl-5 gap-3 bg-[#00000079] flex items-center justify-items-center justify-center rounded-md mask-image">
                 <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
-                    <img className="w-7 h-9" src="/src/assets/status/attack.webp" alt="Attack" loading="lazy"/>
+                    <img className="w-7 h-9" src="/status/attack.webp" alt="Attack" loading="lazy"/>
                     <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Attack</p>    
                 </div>
                 <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedWeapon.attack.display}</p>                
@@ -24,7 +24,7 @@ export default function WeaponsDetails({ selectedWeapon, getWeaknessIcon }) {
             <li className="pl-5 gap-3 bg-[#00000079] flex items-center justify-items-center justify-center rounded-md mask-image">
                 {selectedWeapon.attributes?.affinity ? (<>
                     <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
-                        <img className="w-7 h-9" src="/src/assets/status/affinity.webp" alt="Affinity" loading="lazy" />
+                        <img className="w-7 h-9" src="/status/affinity.webp" alt="Affinity" loading="lazy" />
                         <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Affinity</p>    
                     </div>
                     <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedWeapon.attributes.affinity}%</p>
@@ -33,7 +33,7 @@ export default function WeaponsDetails({ selectedWeapon, getWeaknessIcon }) {
                 ) : (
                     <>
                     <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
-                        <img className="w-7 h-9" src="/src/assets/status/affinity.webp" alt="Affinity" loading="lazy"/>
+                        <img className="w-7 h-9" src="/status/affinity.webp" alt="Affinity" loading="lazy"/>
                         <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Affinity</p>    
                     </div>
                     <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">0%</p>
