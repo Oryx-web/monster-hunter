@@ -20,17 +20,16 @@ export default function Monsters() {
       setSelectedMonster(selectedMonster);
   }, [selectedMonster]);
 
-  const icons = import.meta.glob(`${import.meta.env.BASE_URL}icons/*.svg`, { eager: true });
-  const status = import.meta.glob(`${import.meta.env.BASE_URL}status/*.svg`, { eager: true });
+  const icons = import.meta.glob("/icons/*.svg", { eager: true });
+  const status = import.meta.glob("/status/*.svg", { eager: true });
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
-    console.log(icons);
 
     let matchingIconPath = Object.keys(icons).find(path =>
       path.toLowerCase().includes(`-${monsterName.toLowerCase().replace(/'/g, "_").replace(/\s+/g, "_")}_icon`)
     );
-
+    console.log(matchingIconPath);
     return matchingIconPath ? icons[matchingIconPath].default : "/icons/default.svg";
   };
 
