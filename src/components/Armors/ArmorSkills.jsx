@@ -19,7 +19,7 @@ export default function ArmorSkills({ selectedPiece, getArmorIcon, getWeaknessIc
             </li>
             <li className="pl-5 gap-3 bg-[#00000079] flex items-center rounded-md mask-image">
               <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
-                <img className="w-9 h-9" src="/status/defense_Icon.svg" alt="Defense_Icon" loading='lazy'/>
+                <img className="w-9 h-9" src={`${status("defense_Icon.svg")}`} alt="Defense_Icon" loading='lazy'/>
                 <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Defense</p>    
               </div>
               <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedPiece.defense.base}</p>                
