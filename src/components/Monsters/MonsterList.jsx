@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function MonsterList({ monsters, selectedMonster, handleMonsterClick, getMonsterIcon }) {
   return (
-    <div className="space-y-2 max-h-screen overflow-y-auto grayscale-40 bg-no-repeat bg-cover" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')`}}>
+    <div className="space-y-2 max-h-screen overflow-y-auto bg-no-repeat bg-cover" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')`}}>
       {monsters.map((monster) => (
         <div
           key={monster.id}
