@@ -102,6 +102,7 @@ export default function Weapons() {
                         <WeaponDetails
                             selectedWeapon = {selectedWeapon}
                             getWeaknessIcon={getWeaknessIcon}
+                            status = {status}
                         />
                     </div>
                 </div>
