@@ -25,6 +25,7 @@ export default function Monsters() {
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
+    console.log(icons);
 
     let matchingIconPath = Object.keys(icons).find(path =>
       path.toLowerCase().includes(`-${monsterName.toLowerCase().replace(/'/g, "_").replace(/\s+/g, "_")}_icon`)
@@ -47,6 +48,7 @@ export default function Monsters() {
 
   const getWeaknessIcon = (weakness) => {
     if (!weakness) return "";
+    console.log(status);
 
     let matchingIconPath = Object.keys(status).find(path =>
       path.toLowerCase().includes(`-${weakness.toLowerCase()}_mhw_icon`)
