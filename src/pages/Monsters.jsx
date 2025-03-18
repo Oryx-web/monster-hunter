@@ -28,12 +28,13 @@ export default function Monsters() {
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
-
+    const isDLC = false;
     const matchingIconPath1 = `MHW-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
     const matchingIconPath2 = `MHWI-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
 
-    console.log(icons(matchingIconPath1));
-    return matchingIconPath1 ? icons(matchingIconPath1) : icons(matchingIconPath2);
+    icons(matchingIconPath1) ?  isDLC = false : isDLC = true;
+
+    return isDLC ? icons(matchingIconPath2) : icons(matchingIconPath1);
   };
 
   useEffect(() => {
