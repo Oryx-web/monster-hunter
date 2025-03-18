@@ -24,7 +24,7 @@ export default function MonsterDetails({ selectedMonster, getMonsterIcon, getWea
               <p className="flex items-center">{weakness.element} (<img className="w-10 h-10" src={getWeaknessIcon(weakness.element)} alt={weakness.element} loading='lazy'/> ) :</p>
               <div className="flex brightness-150">
                 {[...Array(weakness.stars)].map((_, i) => (
-                  <img key={i} className="w-6 h-6" src={status["../assets/status/Star.svg"]} alt="star" loading='lazy'/>
+                  <img key={i} className="w-6 h-6" src={status["/status/Star.svg"]} alt="star" loading='lazy'/>
                 ))}
                 {weakness.condition && <p>&nbsp;({weakness.condition})</p>}
               </div>
