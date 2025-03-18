@@ -29,6 +29,7 @@ export default function Monsters() {
     let matchingIconPath = Object.keys(icons).find(path =>
       path.toLowerCase().includes(`-${monsterName.toLowerCase().replace(/'/g, "_").replace(/\s+/g, "_")}_icon`)
     );
+    console.log(monsterName);
     console.log(matchingIconPath);
     return matchingIconPath ? icons[matchingIconPath].default : "/icons/default.svg";
   };
