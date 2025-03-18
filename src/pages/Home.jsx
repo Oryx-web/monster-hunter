@@ -1,6 +1,6 @@
 export default function Home() {
   return(
-    <div className="min-h-screen min-w-screen text-[#54361E] grayscale-50 bg-cover bg-no-repeat flex flex-col justify-center items-center" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')` }}>
+    <div className="min-h-screen min-w-screen text-[#54361E] bg-cover bg-no-repeat flex flex-col justify-center items-center" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')` }}>
       <h1 className="text-5xl font-serif mb-6 border-b-4 border-[#7B4F2D] pb-2">Hunter's Notes</h1>
       <p className="text-lg text-center max-w-xl mb-8">
         Welcome, Hunter! Access detailed information about large and small monsters, weapons and armors.
