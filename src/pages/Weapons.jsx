@@ -9,7 +9,7 @@ export default function Weapons() {
     const [selectedType, setSelectedType] = useState('great-sword');
     const [weapons, setWeapons] = useState([]);
     const [selectedWeapon, setSelectedWeapon] = useState(null);
-    const status = import.meta.glob("../assets/status/*.svg", { eager: true });
+    const status = (filename) => `${import.meta.env.BASE_URL}status/${filename}`;
 
     const handleClick = (weapon) => {
         setSelectedWeapon(weapon);
