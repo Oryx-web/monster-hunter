@@ -3,7 +3,7 @@ import React from 'react';
 export default function ArmorList({ armors, selectedArmor, selectedPiece, handleArmorClick, handlePieceClick, getArmorIcon }) {
   
   return (
-    <div className="space-y-2 max-h-screen w-140 overflow-y-auto brightness-80 bg-no-repeat bg-cover">
+    <div className="space-y-2 max-h-screen w-140 overflow-y-auto bg-no-repeat bg-cover">
       {armors.map((armor) => (
         <div
           key={armor.id}

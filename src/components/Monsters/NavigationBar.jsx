@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function NavigationBar({ selectedType, setSelectedType }) {
   return (
-    <div className="bg-orange-900 brightness-75 w-full h-30 flex items-center justify-around bg-[length:100%_100%] bg-no-repeat border-2 border-black rounded-lg shadow-md" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}banner.webp')`}}>
+    <div className="bg-orange-900 w-full h-30 flex items-center justify-around bg-[length:100%_100%] bg-no-repeat border-2 border-black rounded-lg shadow-md" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}banner.webp')`}}>
       <a
         className={`!text-white flex flex-col items-center text-center p-5 hover:scale-105 hover:animate-glow transition-transform ${selectedType === 1 ? 'hover:selected-glow' : ''}`}
         onClick={() => setSelectedType(1)}
