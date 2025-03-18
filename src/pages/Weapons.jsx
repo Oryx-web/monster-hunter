@@ -28,7 +28,6 @@ export default function Weapons() {
     useEffect(() => {
         if (selectedWeapon)
             setSelectedWeapon(selectedWeapon);
-            console.log(selectedWeapon);
       }, [selectedWeapon]);
 
     useEffect(() => {
