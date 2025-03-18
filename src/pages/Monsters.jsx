@@ -20,8 +20,8 @@ export default function Monsters() {
       setSelectedMonster(selectedMonster);
   }, [selectedMonster]);
 
-  const icons = import.meta.glob("/icons/*.svg", { eager: true });
-  const status = import.meta.glob("/status/*.svg", { eager: true });
+  const icons = import.meta.glob(`${import.meta.env.BASE_URL}/icons/*.svg`, { eager: true });
+  const status = import.meta.glob(`${import.meta.env.BASE_URL}/status/*.svg`, { eager: true });
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
@@ -69,7 +69,7 @@ export default function Monsters() {
       </div>
 
       {/* Right Column: Static Monster Info */}
-      <div className="w-6xl h-max flex flex-col items-center justify-start bg-cover bg-no-repeat grayscale-40 rounded-lg shadow-md border-[10px] border-[#7B4F2D] p-6 relative" style={{ backgroundImage: "url('/background.webp')"}}>
+      <div className="w-6xl h-max flex flex-col items-center justify-start bg-cover bg-no-repeat grayscale-40 rounded-lg shadow-md border-[10px] border-[#7B4F2D] p-6 relative" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')`}}>
         <div className="absolute top-0 left-0 bg-[#7B4F2D] text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg">
           Ecology
         </div>
