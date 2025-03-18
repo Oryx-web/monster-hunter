@@ -20,8 +20,8 @@ export default function Monsters() {
       setSelectedMonster(selectedMonster);
   }, [selectedMonster]);
 
-  const icons = import.meta.glob("../assets/icons/*.svg", { eager: true });
-  const status = import.meta.glob("../assets/status/*.svg", { eager: true });
+  const icons = import.meta.glob("/icons/*.svg", { eager: true });
+  const status = import.meta.glob("/status/*.svg", { eager: true });
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
