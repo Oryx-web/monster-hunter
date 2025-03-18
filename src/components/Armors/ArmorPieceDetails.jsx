@@ -41,7 +41,7 @@ export default function ArmorPieceDetails({selectedPiece}) {
           </div>
 
           <div className="mt-4 ml-5 mr-5 flex flex-col rounded-md">
-            <p className="text-lg text-blue-400 font-serif text-center text-outline-armor">Required Materials</p>
+            <p className="text-lg text-blue-400 font-serif text-center text-outline-armor mb-2.5">Required Materials</p>
             <ul className="flex flex-col justify-between justify-items-center gap-1 text-white">
               {selectedPiece.crafting.materials.map((craft, index) => (
                 <div key={index}>
