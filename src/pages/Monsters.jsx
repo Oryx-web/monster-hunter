@@ -69,7 +69,7 @@ export default function Monsters() {
       </div>
 
       {/* Right Column: Static Monster Info */}
-      <div className="w-6xl h-max flex flex-col items-center justify-start bg-cover bg-no-repeat grayscale-40 rounded-lg shadow-md border-[10px] border-[#7B4F2D] p-6 relative" style={{ backgroundImage: "url('src/assets/background.webp')"}}>
+      <div className="w-6xl h-max flex flex-col items-center justify-start bg-cover bg-no-repeat grayscale-40 rounded-lg shadow-md border-[10px] border-[#7B4F2D] p-6 relative" style={{ backgroundImage: "url('/background.webp')"}}>
         <div className="absolute top-0 left-0 bg-[#7B4F2D] text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg">
           Ecology
         </div>

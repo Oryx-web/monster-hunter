@@ -19,7 +19,7 @@ export default function ArmorSkills({ selectedPiece, getArmorIcon, getWeaknessIc
             </li>
             <li className="pl-5 gap-3 bg-[#00000079] flex items-center rounded-md mask-image">
               <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
-                <img className="w-9 h-9" src="src/assets/status/defense_Icon.svg" alt="Defense_Icon" loading='lazy'/>
+                <img className="w-9 h-9" src="/status/defense_Icon.svg" alt="Defense_Icon" loading='lazy'/>
                 <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Defense</p>    
               </div>
               <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedPiece.defense.base}</p>                
@@ -55,7 +55,7 @@ export default function ArmorSkills({ selectedPiece, getArmorIcon, getWeaknessIc
                                 <div className='flex justify-between'>
                                     <p className='py-0.5 pl-2.5 flex'>
                                         {[...Array(skill.level)].map((_, i) => (
-                                            <img key={i} className="w-5 h-5" src={status["../assets/status/Star.svg"].default} alt="star" loading='lazy'/>
+                                            <img key={i} className="w-5 h-5" src={status["/status/Star.svg"].default} alt="star" loading='lazy'/>
                                         ))}
                                     </p>
                                     <p className="flex items-center pr-5 text-white text-outline-armor">Level {skill.level}</p>
