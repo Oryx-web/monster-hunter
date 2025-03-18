@@ -23,16 +23,16 @@ export default function Monsters() {
   // const icons = import.meta.glob("/icons/*.svg", { eager: true });
   // const status = import.meta.glob("/status/*.svg", { eager: true });
 
-  const icons = (filename) => `/icons/${filename}`;
-  const status = (filename) => `/status/${filename}`;
+  const icons = (filename) => `${import.meta.env.BASE_URL}icons/${filename}`;
+  const status = (filename) => `${import.meta.env.BASE_URL}status/${filename}`;
 
   const getMonsterIcon = (monsterName) => {
     if (!monsterName) return "/icons/default.svg";
 
-    const matchingIconPath1 = `MHW-${monsterName.toLowerCase().replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
-    const matchingIconPath2 = `MHWI-${monsterName.toLowerCase().replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
+    const matchingIconPath1 = `MHW-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
+    const matchingIconPath2 = `MHWI-${monsterName.replace(/'/g, "_").replace(/\s+/g, "_")}_Icon.svg`;
 
-    return matchingIconPath1 ? icons(matchingIconPath1) : "/icons/default.svg";
+    return matchingIconPath1 ? icons(matchingIconPath1) : icons(matchingIconPath2);
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function Monsters() {
   const getWeaknessIcon = (weakness) => {
     if (!weakness) return "";
 
-    const matchingIconPath = `Status_Effect--${weakness.toLowerCase()}_MHW_Icon.svg`;
+    const matchingIconPath = `Status_Effect-${weakness}_MHW_Icon.svg`;
 
     return matchingIconPath ? status(matchingIconPath) : "/icons/default.svg";
   };
