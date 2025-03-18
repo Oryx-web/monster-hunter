@@ -9,7 +9,6 @@ import ArmorPieceDetails from "../components/Armors/ArmorPieceDetails";
 import ArmorSkills from "../components/Armors/ArmorSkills";
 
 export default function Armors() {
-  const i = 0;
   const [loading, setLoading] = useState(false);
   const [lowArmors, setLowArmors] = useState([]);
   const [highArmors, setHighArmors] = useState([]);
@@ -18,8 +17,8 @@ export default function Armors() {
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [selectedRank, setSelectedRank] = useState('low');
 
-  const armorIcons = import.meta.glob("../assets/armors/*.svg", { eager: true });
-  const status = import.meta.glob("../assets/status/*.svg", { eager: true });
+  const armorIcons = (filename) => `${import.meta.env.BASE_URL}armors/${filename}`;
+  const status = (filename) => `${import.meta.env.BASE_URL}status/${filename}`;
 
   const handleArmorClick = (armor) => {
     setSelectedPiece(null);
@@ -34,21 +33,17 @@ export default function Armors() {
   const getArmorIcon = (armor) => {
     if (!armor) return "";
 
-    let matchingIconPath = Object.keys(armorIcons).find(path =>
-      path.toLowerCase().includes(`${armor.toLowerCase()}_icon`)
-    );
+    const matchingIconPath = `${armor}_Icon_White.svg`;
 
-    return matchingIconPath ? armorIcons[matchingIconPath].default : "/icons/default.svg";
+    return matchingIconPath ? armorIcons(matchingIconPath) : "/icons/default.svg";
   };
 
   const getWeaknessIcon = (weakness) => {
     if (!weakness) return "";
 
-    let matchingIconPath = Object.keys(status).find(path =>
-      path.toLowerCase().includes(`-${weakness.toLowerCase()}_mhw_icon`)
-    );
+    const matchingIconPath = `Status_Effect-${weakness}_MHW_Icon.svg`;
 
-    return matchingIconPath ? status[matchingIconPath].default : "/icons/default.svg";
+    return matchingIconPath ? status(matchingIconPath) : "/icons/default.svg";
   };
 
   useEffect(() => {
