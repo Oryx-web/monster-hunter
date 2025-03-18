@@ -8,7 +8,7 @@ export default function NavigationBar({ selectedType, setSelectedType }) {
         onClick={() => setSelectedType(1)}
       >
         <p className="opacity-0">Large Monsters</p>
-        <img className="w-12 h-12 mt-2" src={`${import.meta.env.BASE_URL}icons/MHW-Rathalos_Icon.svg}`} alt="" loading='lazy'/>
+        <img className="w-12 h-12 mt-2" src={`${import.meta.env.BASE_URL}icons/MHW-Rathalos_Icon.svg`} alt="" loading='lazy'/>
       </a>
 
       <a
@@ -16,7 +16,7 @@ export default function NavigationBar({ selectedType, setSelectedType }) {
         onClick={() => setSelectedType(2)}
       >
         <p className="opacity-0">Small Monsters</p>
-        <img className="w-12 h-12 mt-2" src={`${import.meta.env.BASE_URL}icons/MHW-Apceros_Icon.svg}`} alt="" loading='lazy'/>
+        <img className="w-12 h-12 mt-2" src={`${import.meta.env.BASE_URL}icons/MHW-Apceros_Icon.svg`} alt="" loading='lazy'/>
       </a>
 
       <a
@@ -24,7 +24,7 @@ export default function NavigationBar({ selectedType, setSelectedType }) {
         onClick={() => setSelectedType(3)}
       >
         <p className="opacity-0">Endemic Life</p>
-        <img className="w-12 h-12 mt-2" src={`${import.meta.env.BASE_URL}icons/MHW-Vespoid_Icon.svg}`} alt="" loading='lazy'/>
+        <img className="w-12 h-12 mt-2" src={`${import.meta.env.BASE_URL}icons/MHW-Vespoid_Icon.svg`} alt="" loading='lazy'/>
       </a>
     </div>
   );
