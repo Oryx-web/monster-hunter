@@ -1,6 +1,6 @@
 export default function Home() {
   return(
-    <div className="min-h-screen min-w-screen text-[#54361E] grayscale-50 bg-cover bg-no-repeat flex flex-col justify-center items-center " style={{ backgroundImage: "url('/src/assets/background.webp')"}}>
+    <div className="min-h-screen min-w-screen text-[#54361E] grayscale-50 bg-cover bg-no-repeat flex flex-col justify-center items-center " style={{ backgroundImage: `url(${import.meta.env.BASE_URL}/src/assets/background.webp')`}}>
       <h1 className="text-5xl font-serif mb-6 border-b-4 border-[#7B4F2D] pb-2">Hunter's Notes</h1>
       <p className="text-lg text-center max-w-xl mb-8">
         Welcome, Hunter! Access detailed information about large and small monsters, weapons and armors.
@@ -11,7 +11,7 @@ export default function Home() {
             <img className="w-50" src={`${import.meta.env.BASE_URL}/src/assets/icons/MHW-Rathalos_Icon.svg`} alt="Monsters_image" loading="lazy" />
             <img className="w-50" src={`${import.meta.env.BASE_URL}/src/assets/icons/MHW-Rathian_Icon.svg`} alt="Monsters_image" loading="lazy" />
           </div>
-          <a href="/monster-hunter/monsters" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
+          <a href="/monster-hunter/#/monsters" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
             View Monsters
           </a>
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
             <img className="w-20 m-1" src={`${import.meta.env.BASE_URL}/src/assets/home/Waist_Icon_White.svg`} alt="Weapons_image" loading="lazy" />
             <img className="w-20 m-1 col-start-3" src={`${import.meta.env.BASE_URL}/src/assets/home/Leg_Icon_White.svg`} alt="Weapons_image" loading="lazy" />
           </div>
-          <a href="/monster-hunter/armors" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
+          <a href="/monster-hunter/#/armors" className="px-6 py-3 bg-[#7B4F2D] !text-white text-xl rounded-lg shadow-md hover:bg-[#54361E] transition-transform hover:scale-105">
             View Armors
           </a>
         </div>
