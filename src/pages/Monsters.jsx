@@ -57,9 +57,9 @@ export default function Monsters() {
   };
 
   return (
-    <div className="p-6 bg-[#504b4b28] text-white max-w-screen min-h-screen flex gap-8">
+    <div className="p-6 bg-[#504b4b28] text-white max-w-screen min-h-screen flex flex-col sm:flex-row gap-8">
       {/* Left Column: Scrollable List */}
-      <div className="w-xl flex flex-col">
+      <div className="sm:w-xl flex flex-col">
         <NavigationBar selectedType={selectedType} setSelectedType={setSelectedType} />
         <MonsterList
           monsters={selectedType === 1 ? largeMonsters : smallMonsters}
@@ -70,7 +70,7 @@ export default function Monsters() {
       </div>
 
       {/* Right Column: Static Monster Info */}
-      <div className="w-6xl h-max flex flex-col items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-[#7B4F2D] p-6 relative" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')`}}>
+      <div className="sm:w-6xl h-max flex flex-col items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-[#7B4F2D] p-6 relative" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')`}}>
         <div className="absolute top-0 left-0 bg-[#7B4F2D] text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg">
           Ecology
         </div>

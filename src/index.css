@@ -109,7 +109,6 @@ button:focus-visible {
 .hover\:animate-glow:hover p {
   opacity: 1;
   color: rgb(255, 181, 44);
-  font-size: larger;
   text-shadow:
     -1.55px -1.55px 0 #000,  
     1.55px -1.55px 0 #000,
@@ -132,7 +131,6 @@ button:focus-visible {
 .hover\:selected-glow p {
   opacity: 1;
   color: rgb(255, 181, 44);
-  font-size: larger;
   text-shadow:
     -1.55px -1.55px 0 #000,  
     1.55px -1.55px 0 #000,
