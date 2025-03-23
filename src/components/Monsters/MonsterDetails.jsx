@@ -18,7 +18,7 @@ export default function MonsterDetails({ selectedMonster, getMonsterIcon, getWea
       </div>
       <div className="mt-4 border ml-5 mr-5 w-2/3 md:w-full border-[#7B4F2D] rounded-md">
         <p className="text-2xl text-yellow-300 font-serif text-center text-outline bg-[#534a4a67]">Weaknesses</p>
-        <ul className="px-2 xl:px-3 py-3 grid grid-cols-1 xl:grid-cols-3 gap-5 justify-between justify-items-center text-[#54361E]">
+        <ul className="px-2 xl:px-3 py-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 justify-between justify-items-center text-[#54361E]">
           {selectedMonster.weaknesses.map((weakness, index) => (
             !weakness.condition ? (
               <li key={index} className="flex items-center">
