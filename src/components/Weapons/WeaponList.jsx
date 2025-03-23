@@ -28,8 +28,8 @@ const WeaponNode = ({ weapon, weapons, handleClick, selectedWeapon }) => {
                 className={`weapon-card flex flex-col items-center cursor-pointer hover:scale-105 ${selectedWeapon?.id == weapon.id ? "glow" : ""}`} 
                 onClick={() => handleClick(weapon)}
             >
-                <img className="w-10 h-10" src={weapon.assets?.icon || "x"} alt="Imagen no disponible" loading="lazy"/>
-                <p className="text-xs">{weapon.name}</p>
+                <img className="w-8 sm:w-8 lg:w-10" src={weapon.assets?.icon ?? `${import.meta.env.BASE_URL+"weapons/"+selectedWeapon.type}-Icon-White.svg`} alt="Imagen no disponible" loading="lazy"/>
+                <p className="hidden sm:block sm:text-xs">{weapon.name}</p>
             </div>
 
             {/* Línea vertical si hay más de un hijo */}  

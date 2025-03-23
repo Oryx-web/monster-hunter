@@ -3,7 +3,7 @@ export default function WeaponsDetails({ selectedWeapon, getWeaknessIcon, status
     <>
     <div className="mt-4 flex justify-center items-center justify-items-center gap-3">
         <div className="w-10 h-10 armor-icon">
-            <img className="armor" src={selectedWeapon.assets?.icon} alt="Icon" loading="lazy"/>
+            <img className="armor" src={selectedWeapon.assets?.icon ?? `${import.meta.env.BASE_URL+"weapons/"+selectedWeapon.type}-Icon-White.svg`} alt="Icon" loading="lazy"/>
         </div>
         <h2 className="text-2xl text-white text-center font-serif min-w-1/2">{selectedWeapon.name}</h2>
     </div>
@@ -22,14 +22,14 @@ export default function WeaponsDetails({ selectedWeapon, getWeaknessIcon, status
                 <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedWeapon.attack.display}</p>                
             </li>
             <li className="pl-5 gap-3 bg-[#00000079] flex items-center justify-items-center justify-center rounded-md mask-image">
-                {selectedWeapon.attributes?.affinity ? (<>
-                    <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
-                        <img className="w-7 h-9" src={`${status("affinity.webp")}`} alt="Affinity" loading="lazy" />
-                        <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Affinity</p>    
-                    </div>
-                    <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedWeapon.attributes.affinity}%</p>
-                </>
-
+                {selectedWeapon.attributes?.affinity ? (
+                    <>
+                        <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">
+                            <img className="w-7 h-9" src={`${status("affinity.webp")}`} alt="Affinity" loading="lazy" />
+                            <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor">Affinity</p>    
+                        </div>
+                        <p className="h-10 flex items-center justify-evenly content-evenly text-white text-outline-armor pr-5">{selectedWeapon.attributes.affinity}%</p>
+                    </>
                 ) : (
                     <>
                     <div className="w-1/1 flex border-b-2 border-dashed border-[#d0d85f57]">

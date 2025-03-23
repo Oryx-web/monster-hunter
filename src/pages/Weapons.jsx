@@ -77,8 +77,8 @@ export default function Weapons() {
     };
 
     return (
-        <div className="p-6 w-screen bg-gray-950 flex text-white min-h-screen gap-8">
-            <div className="">
+        <div className="p-6 w-screen bg-gray-950 flex flex-col text-white min-h-screen gap-8 lg:flex-row">
+            <div>
                 <NavigationBar 
                     selectedType={selectedType} 
                     setSelectedType={setSelectedType} 
@@ -90,7 +90,7 @@ export default function Weapons() {
                 />
             </div>
             {selectedWeapon ? (
-                <div className="flex gap-8">
+                <div className="w-fit flex flex-col gap-8 sm:flex-row lg:flex-col xl:flex-row">
                     <div className="relative left-0 top-0 h-fit bg-[#2c2b2b93] flex flex-col items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 pt-6">
                         <a href="/monster-hunter" className="absolute top-0 right-0 bg-[#bb3333] !text-white p-1 text-2xs font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105">Return to Home</a>
                         <WeaponImage
