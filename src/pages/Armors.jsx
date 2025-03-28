@@ -11,8 +11,8 @@ import ArmorSkills from "../components/Armors/ArmorSkills";
 export default function Armors() {
   const [loading, setLoading] = useState(false);
   const [lowArmors, setLowArmors] = useState([]);
-  const [highArmors, setHighArmors] = useState([]);
-  const [masterArmors, setMasterArmors] = useState([]);
+  const [highArmors, setHighArmors] = useState(null); // Initially null to indicate not fetched
+  const [masterArmors, setMasterArmors] = useState(null); // Initially null to indicate not fetched
   const [selectedArmor, setSelectedArmor] = useState(null);
   const [selectedPiece, setSelectedPiece] = useState(null);
   const [selectedRank, setSelectedRank] = useState('low');
@@ -21,16 +21,17 @@ export default function Armors() {
   const status = (filename) => `${import.meta.env.BASE_URL}status/${filename}`;
 
   const ref = useRef(null);
+
   const handleArmorClick = (armor) => {
     setSelectedPiece(null);
     setSelectedArmor(armor);
-    ref.current?.scrollIntoView({behavior: 'smooth'});
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handlePieceClick = (piece) => {
     setSelectedArmor(null);
     setSelectedPiece(piece);
-    ref.current?.scrollIntoView({behavior: 'smooth'});
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const getArmorIcon = (armor) => {
@@ -49,27 +50,42 @@ export default function Armors() {
     return matchingIconPath ? status(matchingIconPath) : "/icons/default.svg";
   };
 
+  // Fetch low armors initially
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchLowArmors = async () => {
       setLoading(true);
       const armorsLowData = await getLowArmors();
-      const armorsHighData = await getHighArmors();
-      const armorsMasterData = await getMasterArmors();
-
       setLowArmors(armorsLowData);
-      setHighArmors(armorsHighData);
-      setMasterArmors(armorsMasterData);
       setSelectedArmor(armorsLowData[0]); // Set first armor as default
       setLoading(false);
-    }
-    fetchData();
+    };
+    fetchLowArmors();
   }, []);
+
+  // Fetch high or master armors on demand
+  const fetchArmorsByRank = async (rank) => {
+    setLoading(true);
+    if (rank === 'high' && !highArmors) {
+      setLoading(true);
+      const armorsHighData = await getHighArmors();
+      setHighArmors(armorsHighData);
+    } else if (rank === 'master' && !masterArmors) {
+      setLoading(true);
+      const armorsMasterData = await getMasterArmors();
+      setMasterArmors(armorsMasterData);
+    }
+    setSelectedRank(rank);
+    setLoading(false);
+  };
 
   return (
     <div className="p-6 w-screen bg-gray-950 flex flex-col lg:flex-row text-white min-h-screen gap-8">
       {/* Armor Info */}
       <div className="flex flex-col">
-        <NavigationBar selectedRank={selectedRank} setSelectedRank={setSelectedRank} />
+        <NavigationBar
+          selectedRank={selectedRank}
+          setSelectedRank={fetchArmorsByRank} // Pass the fetch function to handle rank changes
+        />
         <ArmorList
           armors={selectedRank === 'low' ? lowArmors : selectedRank === 'high' ? highArmors : masterArmors}
           selectedArmor={selectedArmor}
@@ -81,10 +97,15 @@ export default function Armors() {
         {loading && <p className="mt-5">Loading...</p>}
       </div>
 
-      {!loading &&       
-        <div ref={ref} className='flex flex-col xl:flex-row grow gap-8'>
+      {!loading ? (
+        <div ref={ref} className="flex flex-col xl:flex-row grow gap-8">
           <div className="h-max bg-[#2c2b2b93] flex flex-col grow-0 xl:grow items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 p-6 relative">
-            <a href="/monster-hunter" className="absolute top-0 right-0 bg-[#bb3333] !text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105">Return to Home</a>
+            <a
+              href="/monster-hunter"
+              className="absolute top-0 right-0 bg-[#bb3333] !text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105"
+            >
+              Return to Home
+            </a>
             {selectedArmor ? (
               <ArmorDetails
                 selectedArmor={selectedArmor}
@@ -98,7 +119,7 @@ export default function Armors() {
               />
             )}
           </div>
-          <div className='grow'>
+          <div className="grow">
             {selectedPiece ? (
               <ArmorSkills
                 selectedPiece={selectedPiece}
@@ -106,10 +127,12 @@ export default function Armors() {
                 getWeaknessIcon={getWeaknessIcon}
                 status={status}
               />
-            ) : ('')}
+            ) : (
+              ''
+            )}
           </div>
         </div>
-      }
+      ) : <p>Loading...</p>}
     </div>
   );
 }

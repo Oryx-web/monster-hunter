@@ -18,8 +18,8 @@ export default function ArmorPieceDetails({selectedPiece}) {
                       <img src={selectedPiece.assets.imageMale} alt={`${selectedPiece.name}`} loading='lazy'/>
                     </ul>
                     )
-                    : (<p className="w-40 h-20 text-white text-center">No Piece Available</p>) )
-                    : (<p className="w-40 h-20 text-white text-center">No Piece Available</p>)
+                    : (<p className="w-40 h-20 flex items-center justify-center justify-items-center text-white text-center">No Piece Available</p>) )
+                    : (<p className="w-40 h-20 flex items-center justify-center justify-items-center text-white text-center">No Piece Available</p>)
                   }
               </div>
             </div>
@@ -33,8 +33,8 @@ export default function ArmorPieceDetails({selectedPiece}) {
                       <img src={selectedPiece.assets.imageFemale} alt={`${selectedPiece.name}`} loading='lazy'/>
                     </ul>
                     )
-                    : (<p className="w-40 h-20 text-white text-center">No Piece Available</p>) )
-                    : (<p className="w-40 h-20 text-white text-center">No Piece Available</p>)
+                    : (<p className="w-40 h-20 flex items-center justify-center justify-items-center text-white text-center">No Piece Available</p>) )
+                    : (<p className="w-40 h-20 flex items-center justify-center justify-items-center text-white text-center">No Piece Available</p>)
                   }
               </div>
             </div>
