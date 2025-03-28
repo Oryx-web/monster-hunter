@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getLowArmors } from "../api/armorsLow";
 import { getHighArmors } from "../api/armorsHigh";
 import { getMasterArmors } from "../api/armorsMaster";
@@ -20,14 +20,17 @@ export default function Armors() {
   const armorIcons = (filename) => `${import.meta.env.BASE_URL}armors/${filename}`;
   const status = (filename) => `${import.meta.env.BASE_URL}status/${filename}`;
 
+  const ref = useRef(null);
   const handleArmorClick = (armor) => {
     setSelectedPiece(null);
-    setSelectedArmor(armor); // Updates state, but it won’t be available immediately!
+    setSelectedArmor(armor);
+    ref.current?.scrollIntoView({behavior: 'smooth'});
   };
 
   const handlePieceClick = (piece) => {
     setSelectedArmor(null);
-    setSelectedPiece(piece); // Updates state, but it won’t be available immediately!
+    setSelectedPiece(piece);
+    ref.current?.scrollIntoView({behavior: 'smooth'});
   };
 
   const getArmorIcon = (armor) => {
@@ -63,7 +66,7 @@ export default function Armors() {
   }, []);
 
   return (
-    <div className="p-6 w-screen bg-gray-950 flex text-white min-h-screen gap-8">
+    <div className="p-6 w-screen bg-gray-950 flex flex-col lg:flex-row text-white min-h-screen gap-8">
       {/* Armor Info */}
       <div className="flex flex-col">
         <NavigationBar selectedRank={selectedRank} setSelectedRank={setSelectedRank} />
@@ -79,8 +82,8 @@ export default function Armors() {
       </div>
 
       {!loading &&       
-        <div className='flex grow gap-8'>
-          <div className="h-max bg-[#2c2b2b93] flex flex-col grow items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 p-6 relative">
+        <div ref={ref} className='flex flex-col xl:flex-row grow gap-8'>
+          <div className="h-max bg-[#2c2b2b93] flex flex-col grow-0 xl:grow items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 p-6 relative">
             <a href="/monster-hunter" className="absolute top-0 right-0 bg-[#bb3333] !text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105">Return to Home</a>
             {selectedArmor ? (
               <ArmorDetails

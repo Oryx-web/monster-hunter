@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getWeapons } from "../api/weapons";
 import NavigationBar from '../components/Weapons/NavigationBar';
 import WeaponList from "../components/Weapons/WeaponList";
@@ -11,8 +11,10 @@ export default function Weapons() {
     const [selectedWeapon, setSelectedWeapon] = useState(null);
     const status = (filename) => `${import.meta.env.BASE_URL}status/${filename}`;
 
-    const handleClick = (weapon) => {
+    const ref = useRef(null);
+    const handleClickWeapon = (weapon) => {
         setSelectedWeapon(weapon);
+        ref.current?.scrollIntoView({behavior: 'smooth'});
     }
 
     const getWeaknessIcon = (weakness) => {
@@ -77,7 +79,7 @@ export default function Weapons() {
     };
 
     return (
-        <div className="p-6 w-screen bg-gray-950 flex flex-col text-white min-h-screen gap-8 lg:flex-row">
+        <div className="p-6 w-screen bg-gray-950 flex flex-col items-center lg:items-start lg:sticky justify-center justify-items-center text-white min-h-screen gap-8 lg:flex-row">
             <div>
                 <NavigationBar 
                     selectedType={selectedType} 
@@ -85,13 +87,13 @@ export default function Weapons() {
                 />
                 <WeaponList 
                     weapons={weapons} 
-                    handleClick={handleClick}
+                    handleClickWeapon={handleClickWeapon}
                     selectedWeapon={selectedWeapon}
                 />
             </div>
             {selectedWeapon ? (
-                <div className="w-fit flex flex-col gap-8 sm:flex-row lg:flex-col xl:flex-row">
-                    <div className="relative left-0 top-0 h-fit bg-[#2c2b2b93] flex flex-col items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 pt-6">
+                <div className="w-fit flex flex-col gap-8 sm:flex-row sm:grow md:grow-0 lg:flex-col xl:flex-row">
+                    <div ref={ref} className="relative left-0 top-0 h-fit bg-[#2c2b2b93] flex flex-col items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 pt-6">
                         <a href="/monster-hunter" className="absolute top-0 right-0 bg-[#bb3333] !text-white p-1 text-2xs font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105">Return to Home</a>
                         <WeaponImage
                             selectedWeapon = {selectedWeapon}

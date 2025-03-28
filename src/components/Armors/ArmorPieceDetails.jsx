@@ -7,11 +7,11 @@ export default function ArmorPieceDetails({selectedPiece}) {
     <>
       <div className="flex">
         <div>
-          <h2 className="mt-8 text-4xl text-white text-center font-serif min-w-1/2 border-b-2 border-white pb-2">{selectedPiece.name}</h2>
-          <div className="flex gap-x-5 content-around justify-around">
+          <h2 className="mt-8 text-2xl sm:text-4xl text-white text-center font-serif min-w-1/2 border-b-2 border-white pb-2">{selectedPiece.name}</h2>
+          <div className="flex gap-x-2 sm:gap-x-5 content-around justify-around">
             <div className="mt-4 w-40 content-center justify-items-center border border-gray-700 rounded-md">
               <p className="text-2xl w-full text-white font-serif text-center text-outline bg-[#534a4a67]">Male</p>
-              <div className="pt-2.5 items-center justify-center justify-items-center">
+              <div className="py-1.5 items-center justify-center justify-items-center">
                   {selectedPiece.assets !== null ? (
                     selectedPiece.assets.imageMale !== null ? (
                     <ul key={selectedPiece.id} className="w-20 h-20">
@@ -26,7 +26,7 @@ export default function ArmorPieceDetails({selectedPiece}) {
 
             <div className="mt-4 w-40 content-center justify-items-center border border-gray-700 rounded-md">
               <p className="text-2xl w-full text-white font-serif text-center text-outline bg-[#534a4a67]">Female</p>
-              <div className="pt-2.5 items-center justify-center justify-items-center">
+              <div className="py-1.5 items-center justify-center justify-items-center">
                   {selectedPiece.assets !== null ? (
                     selectedPiece.assets.imageFemale !== null ? (
                     <ul key={selectedPiece.id} className="w-20 h-20">
