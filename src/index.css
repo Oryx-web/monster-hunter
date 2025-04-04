@@ -195,3 +195,8 @@ button:focus-visible {
   transform: rotate(180deg) translateY(42.5%) translateX(-50%);
   z-index: 1;
 }
+
+.grid-equal-rows {
+  display: grid;
+  grid-auto-rows: 1fr;
+}
