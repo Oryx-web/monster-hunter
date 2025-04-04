@@ -180,8 +180,12 @@ button:focus-visible {
 
 .weapon-card{
   text-align: center;
-  width: fit-content;
+  width: auto;
   background-color: #1a1a1a;
+}
+
+.weapon-card p, .weapon-card img {
+  margin: 2% 5%;
 }
 
 .child-node:before {
@@ -199,4 +203,9 @@ button:focus-visible {
 .grid-equal-rows {
   display: grid;
   grid-auto-rows: 1fr;
+}
+
+.weapon-card{
+  border-radius: 15px;
+  padding: 1rem;
 }

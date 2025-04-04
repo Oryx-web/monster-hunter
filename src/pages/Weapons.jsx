@@ -89,6 +89,7 @@ export default function Weapons() {
                     weapons={weapons} 
                     handleClickWeapon={handleClickWeapon}
                     selectedWeapon={selectedWeapon}
+                    getWeaknessIcon={getWeaknessIcon}
                 />
             </div>
             {selectedWeapon ? (
