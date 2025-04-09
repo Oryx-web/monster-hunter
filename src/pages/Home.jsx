@@ -99,7 +99,7 @@ export default function Home() {
                   <p className="intro text-white text-center text-wrap text-lg font-medium tracking-wide max-sm:text-xs">Welcome, Hunter! Access detailed information about large and small monsters, weapons and armors.</p>
                 </div>
               </div>
-              <a href="" className="w-[50%] ml-[-15%] mt-[7%] z-10 min-xl:ml-[-12%] max-lg:mt-[15%] max-lg:ml-[-20%] max-sm:mr-[-15%] max-sm:mt-[30%] max-sm:w-[100%] min-lg:mt-[15%]">
+              <a href="" className="w-[50%] ml-[-15%] mt-[7%] z-10 min-xl:ml-[-12%] max-lg:mt-[15%] max-lg:ml-[-20%] max-sm:ml-[-15%] max-sm:mt-[30%] max-sm:w-[100%] min-lg:mt-[15%]">
                 <img className="sm:p-0 cursor-pointer drop-shadow-[0px_0px_10px_rgba(0,0,0,1)] hover:scale-110 hover:drop-shadow-[0_0px_15px_rgba(0,150,0,1)] transition-all duration-200" src={`${import.meta.env.BASE_URL}/rathian.webp`} alt="X" loading='lazy' />
               </a>
             </div>
