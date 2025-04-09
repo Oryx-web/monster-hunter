@@ -105,6 +105,16 @@ button:focus-visible {
   100% { filter: drop-shadow(0 0 10px rgba(255, 166, 0, 0.699)); }
 }
 
+@keyframes glowingHome {
+  0% { filter: drop-shadow(0 0 10px rgba(0, 209, 28, 1)); }
+  50% { filter: drop-shadow(0 0 15px rgb(0, 209, 28)); }
+  100% { filter: drop-shadow(0 0 10px rgba(0, 209, 28, 1)); }
+}
+
+.hover\:animate-glow-home:hover{
+  animation: glowingHome 1.5s infinite ease-in-out;
+}
+
 /* Efecto hover */
 .hover\:animate-glow:hover {
   animation: glowingSidebar 1.5s infinite alternate ease-in-out;
