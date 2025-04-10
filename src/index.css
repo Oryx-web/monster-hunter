@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 :root {
-  font-family: 'Cinzel', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -197,6 +197,8 @@ button:focus-visible {
   text-align: center;
   width: auto;
   background-color: #1a1a1a;
+  border-radius: 15px;
+  padding: 0.6rem;
 }
 
 .weapon-card p, .weapon-card img {
@@ -218,11 +220,6 @@ button:focus-visible {
 .grid-equal-rows {
   display: grid;
   grid-auto-rows: 1fr;
-}
-
-.weapon-card{
-  border-radius: 15px;
-  padding: 1rem;
 }
 
 .ripped {
@@ -266,6 +263,12 @@ button:focus-visible {
   }
 }
 
+@media (max-width:1024px) {
+  .large{
+    flex-direction: column;
+  }
+}
+
 @media (max-width:1280px) {
   .title{
     font-size: 4rem;
@@ -294,6 +297,10 @@ button:focus-visible {
   }
   .hunters{
     font-size: 0.7rem;
+  }
+  .weapon-card{
+    border-radius: 5px;
+    padding: 0.3rem;
   }
 }
 

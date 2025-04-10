@@ -43,7 +43,7 @@ export default function Home() {
   }, []);
 
   return(
-    <div className="min-h-screen min-w-screen text-xs"> 
+    <div className="home min-h-screen min-w-screen text-xs"> 
       <div id="home"></div>
       <div ref={navbarRef} className={`w-full flex items-center justify-evenly z-[50] ${isFixed ? "fixed top-0 backdrop-blur-md bg-gray-800/70 transition-all duration-300" : "absolute mt-[10%] sm:m-0 sm:pt-[3%] 2xl:pt-[2%] transition-all duration-300"}`}>
         <img

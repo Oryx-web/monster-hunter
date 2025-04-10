@@ -79,7 +79,7 @@ export default function Armors() {
   };
 
   return (
-    <div className="p-6 w-screen bg-gray-950 flex flex-col lg:flex-row text-white min-h-screen gap-8">
+    <div className="p-6 min-w-screen bg-gray-950 flex flex-col lg:flex-row text-white min-h-screen gap-8">
       {/* Armor Info */}
       <div className="flex flex-col">
         <NavigationBar
