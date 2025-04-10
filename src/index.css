@@ -282,12 +282,18 @@ button:focus-visible {
   .title{
     font-size: 2.5rem;
   }
+  .hunters{
+    font-size: 1rem;
+  }
 }
 
 @media (max-width:639px) {
   .title{
     padding-top: 10%;
     font-size: 2rem;
+  }
+  .hunters{
+    font-size: 0.7rem;
   }
 }
 
@@ -303,3 +309,4 @@ button:focus-visible {
   border-bottom: gold 5px solid;
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 }
+
