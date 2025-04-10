@@ -92,7 +92,7 @@ export default function Home() {
             <div className="w-full flex flex-col items-center justify-center px-4 sm:px-12 lg:px-32 xl:px-60">
               <h1 className="title text-center font-semibold [text-shadow:_0px_8px_5px_rgb(0_0_0_/_100%)] mb-6 mt-[5%]">MONSTERS</h1>
               <p className="text-white text-center text-xl font-medium tracking-wide mb-10 px-10 max-sm:text-sm">
-                Learn about your foes before the hunt! Tap on any monster to explore all of them, their ecology, and more.
+                Learn about your foes before the hunt! Click on any monster to explore all of them, their ecology, and more.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full z-10">
@@ -128,7 +128,7 @@ export default function Home() {
               <div className="">
                 <h1 className="title text-center font-semibold [text-shadow:_0px_8px_5px_rgb(0_0_0_/_100%)]">HUNTERS</h1>
                 <div className="intro w-[100%] p-[10%] rounded-lg flex flex-col items-center justify-center">
-                  <p className="hunters text-white text-center text-wrap min-lg:text-xl max-md:text-md font-medium tracking-wide max-sm:text-xs">Discover the core of every hunter... Their gear! From different type of weapons to armor sets that help the hunter in battle.</p>
+                  <p className="hunters text-white text-center text-wrap min-lg:text-xl max-md:text-md font-medium tracking-wide max-sm:text-xs">Discover the core of every hunter... Their gear! Click to learn about the different types of weapons and armor sets that help the hunter in battle.</p>
                   <div className="w-[100%] px-[5%] pt-[10%] flex justify-between items-center justify-items-center bg-cover bg-no-repeat">
                     <p className="min-md:text-lg max-sm:text-xs font-bold">← Weapons</p> 
                     <p className="min-md:text-lg max-sm:text-xs font-bold">Armors →</p>
