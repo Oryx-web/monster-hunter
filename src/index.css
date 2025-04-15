@@ -1,15 +1,20 @@
 /* Import Cinzel font */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 @import "tailwindcss";
 
 :root {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  --mh-gold: #FFB833;
+  --mh-red: #FF4545;
+  --mh-brown: #4A3728;
+  --mh-light-brown: #8B7355;
+  font-family: 'MedievalSharp', Georgia, serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1a1a1a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -44,9 +49,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
@@ -223,11 +225,12 @@ button:focus-visible {
 }
 
 .ripped {
+  position: relative;
   filter: drop-shadow(-1px 6px 3px rgba(0, 0, 0, 0.5));
   clip-path: polygon(
     0 100%,
     100% 100%,
-    100% 0%,     /* top-right corner */
+    100% 0%,
     95% 3%,
     92% 7%,
     89% 4%,
@@ -250,11 +253,22 @@ button:focus-visible {
     15% 8%,
     10% 6%,
     5% 7%,
-    0 4%,
-    0 100%,
-    100% 100%
+    0 4%
   );
-  background-color: #222; /* Add a background for testing */
+}
+
+.ripped::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 184, 51, 0.2),
+    transparent
+  );
 }
 
 @media (min-width:1281px) {
@@ -315,5 +329,140 @@ button:focus-visible {
   border-top: gold 5px solid;
   border-bottom: gold 5px solid;
   clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+/* Monster Hunter themed scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mh-brown);
+  border: 2px solid var(--mh-light-brown);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffb83383;
+  border: 2px solid var(--mh-light-brown);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD700;
+}
+
+.title {
+  font-family: 'Cinzel', serif;
+  color: var(--mh-gold);
+  position: relative;
+  padding: 0.5em 1em;
+}
+
+.title::before, .title::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--mh-gold);
+}
+
+.title::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.title::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.mh-section {
+  position: relative;
+  border: 3px solid var(--mh-gold);
+  background: rgba(74, 55, 40, 0.9);
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 0 20px rgba(255, 184, 51, 0.3);
+}
+
+.mh-section::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid var(--mh-brown);
+  z-index: -1;
+}
+
+.mh-card {
+  border: 2px solid var(--mh-gold);
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mh-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 184, 51, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.mh-card:hover::before {
+  left: 100%;
+}
+
+.mh-button {
+  background: linear-gradient(45deg, var(--mh-brown), var(--mh-light-brown));
+  border: 2px solid var(--mh-gold);
+  color: var(--mh-gold);
+  padding: 0.5em 1em;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mh-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--mh-gold);
+}
+
+@keyframes monsterGlow {
+  0% { box-shadow: 0 0 5px var(--mh-gold), 0 0 10px var(--mh-red); }
+  50% { box-shadow: 0 0 20px var(--mh-gold), 0 0 30px var(--mh-red); }
+  100% { box-shadow: 0 0 5px var(--mh-gold), 0 0 10px var(--mh-red); }
+}
+
+@keyframes weaponGlow {
+  0% { filter: drop-shadow(0 0 3px var(--mh-gold)); }
+  50% { filter: drop-shadow(0 0 8px var(--mh-gold)); }
+  100% { filter: drop-shadow(0 0 3px var(--mh-gold)); }
+}
+
+.monster-glow {
+  animation: monsterGlow 2s infinite;
+}
+
+.weapon-glow {
+  animation: weaponGlow 1.5s infinite;
 }
 
