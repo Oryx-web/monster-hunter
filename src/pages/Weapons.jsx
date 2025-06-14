@@ -79,7 +79,7 @@ export default function Weapons() {
     };
 
     return (
-        <div className="large p-3 sm:p-6 min-w-screen overflow-x-auto whitespace-nowrap bg-gray-950 flex flex-col items-center lg:items-start justify-center justify-items-center text-white min-h-screen gap-8 xl:gap-4 lg:flex-row">
+        <div className="large p-3 sm:p-6 w-screen overflow-x-auto whitespace-nowrap bg-gray-950 flex flex-col items-center lg:items-start justify-center justify-items-center text-white min-h-screen gap-8 xl:gap-4 lg:flex-row">
             <div className="w-fit">
                 <NavigationBar 
                     selectedType={selectedType} 

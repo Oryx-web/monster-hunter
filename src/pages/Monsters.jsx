@@ -59,7 +59,7 @@ export default function Monsters() {
   };
 
   return (
-    <div className="p-6 bg-[#504b4b28] text-white max-w-screen min-h-screen flex flex-col sm:flex-row gap-8">
+    <div className="p-6 bg-[#504b4b28] text-white max-w-screen min-h-dvh flex flex-col sm:flex-row gap-8">
       {/* Left Column: Scrollable List */}
       <div className="sm:w-xl flex flex-col">
         <NavigationBar selectedType={selectedType} setSelectedType={setSelectedType} />

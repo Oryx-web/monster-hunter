@@ -19,13 +19,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="home min-h-screen min-w-screen text-xs">
+    <div className="home min-h-dvh max-w-screen text-xs">
       <div id="home"></div>
       
       <Navbar isFixed={isFixed} />
       
       <div 
-        className="sticky top-0 bg-cover bg-no-repeat pb-[60%] sm:pb-[55%]" 
+        className="sticky top-0 h-dvh bg-cover bg-center bg-no-repeat pb-[60%] sm:pb-[55%]" 
         style={{ backgroundImage: `url('${import.meta.env.BASE_URL}banner_home.webp')`}}
       />
 
