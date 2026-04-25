@@ -386,19 +386,7 @@ button:focus-visible {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.mh-section::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border: 2px solid var(--mh-brown);
-  z-index: -1;
-}
-
 .mh-card {
-  border: 2px solid var(--mh-gold);
   background: rgba(0, 0, 0, 0.7);
   transition: all 0.3s ease;
   position: relative;
@@ -419,23 +407,6 @@ button:focus-visible {
     transparent
   );
   transition: 0.5s;
-}
-
-.mh-card:hover::before {
-  left: 100%;
-}
-
-.mh-button {
-  background: linear-gradient(45deg, var(--mh-brown), var(--mh-light-brown));
-  border: 2px solid var(--mh-gold);
-  color: var(--mh-gold);
-  padding: 0.5em 1em;
-  font-family: 'Cinzel', serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .mh-button:hover {

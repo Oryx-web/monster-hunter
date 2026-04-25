@@ -102,7 +102,7 @@ const handleWheel = (e) => {
   return (
     <section
       id="loadout"
-      className="relative w-full overflow-hidden bg-[#15110d] px-4 py-20 text-white sm:px-8 lg:px-16"
+      className="relative w-full overflow-hidden bg-[#15110d] px-4 py-[20%] text-white sm:px-8 lg:px-16 max-md:hidden"
       aria-label="Hunter radial menu"
     >
       <div
@@ -166,7 +166,7 @@ const handleWheel = (e) => {
               type="button"
               role="option"
               aria-selected={item.isSelected}
-              className="absolute left-4/7 top-4/7 grid h-[20%] w-[20%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 bg-[#1a1a1a]/90 p-2 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB833]"
+              className="absolute left-4/7 top-4/7 grid h-[20%] w-[20%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 bg-[#1a1a1a]/90 p-2 transition-all duration-300 focus-visible:outline-offset-4 focus-visible:outline-[#FFB833]"
               style={{
                 transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateY(-185%) rotate(${-item.angle}deg) scale(${item.scale})`,
                 borderColor: item.isSelected ? item.accent : "rgba(255,184,51,0.45)",
