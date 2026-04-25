@@ -15,24 +15,23 @@ export default function Introduction({ contentRef }) {
         >
           <div className="w-full pb-[20%] flex items-center justify-center justify-items-center bg-cover bg-no-repeat">
             <img 
-              className="w-[20%] pb-[8%] pt-[2%] mr-[-12%] mt-[7%] z-10 max-lg:mt-[10%] max-lg:mr-[-20%] max-sm:mt-[30%] max-sm:w-[25%] sm:p-0 weapon-glow" 
+              className="w-[10%] pb-[8%] pt-[2%] mr-[-12%] mt-[7%] z-10 max-lg:mt-[10%] max-lg:mr-[-20%] max-sm:mt-[30%] max-sm:w-[25%] sm:p-0 weapon-glow" 
               src={`${import.meta.env.BASE_URL}/left.png`} 
               alt="Decorative Left" 
               loading='lazy' 
             />
-            <div className="py-[5%] mh-section flex flex-col items-center justify-center justify-items-center">
-              <h1 className="title text-center font-semibold mb-8">
-                INTRODUCTION
+            <div className="pt-[5%] mh-section flex flex-col items-center justify-center justify-items-center">
+              <h1 className="title text-center font-semibold">
+                HUNTER GUIDE
               </h1>
-              <div className="w-[70%] flex flex-col items-center justify-center justify-items-center">
-                <p className="text-[#FFB833] text-center text-wrap text-lg font-medium tracking-wide max-sm:text-xs">
+              <div className="w-[60%] flex flex-col items-center justify-center justify-items-center">
+                <p className="text-[#FFB833] text-center text-wrap text-lg font-medium tracking-wide max-sm:text-xs mb-8">
                   Welcome, Hunter! Access detailed information about large and small monsters, weapons and armors.
                 </p>
-                <p className="pt-[5%] mb-[-5%] text-5xl text-[#FFB833] animate-bounce">↓</p>
               </div>
             </div>
             <img 
-              className="w-[20%] pb-[8%] pt-[2%] ml-[-12%] mt-[7%] z-10 max-lg:mt-[10%] max-lg:ml-[-20%] max-sm:mt-[30%] max-sm:w-[25%] sm:p-0 weapon-glow" 
+              className="w-[10%] pb-[8%] pt-[2%] ml-[-12%] mt-[7%] z-10 max-lg:mt-[10%] max-lg:ml-[-20%] max-sm:mt-[30%] max-sm:w-[25%] sm:p-0 weapon-glow" 
               src={`${import.meta.env.BASE_URL}/right.png`} 
               alt="Decorative Right" 
               loading='lazy' 

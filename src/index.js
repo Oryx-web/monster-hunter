@@ -14,3 +14,12 @@ function navegacionFija() {
         }
     })
 }
+
+document.getElementById("noscroll").addEventListener('mouseenter', () => {
+  // Use { passive: false } to allow preventDefault()
+  window.addEventListener('wheel', preventDefault, { passive: false });
+});
+
+document.getElementById("noscroll").addEventListener('mouseleave', () => {
+  window.removeEventListener('wheel', preventDefault);
+});

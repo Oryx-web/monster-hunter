@@ -8,6 +8,7 @@
   --mh-red: #FF4545;
   --mh-brown: #4A3728;
   --mh-light-brown: #8B7355;
+  --mh-invisble: rgba(0, 0, 0, 0);
   font-family: 'MedievalSharp', Georgia, serif;
   line-height: 1.5;
   font-weight: 400;
@@ -332,23 +333,19 @@ button:focus-visible {
 }
 
 /* Monster Hunter themed scrollbar */
+
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 40px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--mh-brown);
-  border: 2px solid var(--mh-light-brown);
+
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ffb83383;
-  border: 2px solid var(--mh-light-brown);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #FFD700;
+    border-radius: 25px;
+    -webkit-box-shadow: 5px 0 0 rgb(0, 255, 34); 
 }
 
 .title {
@@ -383,10 +380,10 @@ button:focus-visible {
 .mh-section {
   position: relative;
   border: 3px solid var(--mh-gold);
-  background: rgba(74, 55, 40, 0.9);
+  background: rgba(0, 0, 0, 0.8);
   padding: 2rem;
   margin: 1rem;
-  box-shadow: 0 0 20px rgba(255, 184, 51, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .mh-section::before {

@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Introduction from "../components/Introduction";
 import Monsters from "../components/Monsters";
 import Hunters from "../components/Hunters";
+import CircularScroll from "../components/CircularScroll";
 
 export default function Home() {
   const contentRef = useRef(null);
@@ -32,6 +33,7 @@ export default function Home() {
       <Introduction contentRef={contentRef} />
       <Monsters />
       <Hunters />
+      <CircularScroll />
     </div>
   );
 }
