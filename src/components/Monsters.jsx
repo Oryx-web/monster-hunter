@@ -21,10 +21,10 @@ export default function Monsters() {
         >
           <div className="w-full flex flex-col items-center justify-center px-4 sm:px-12 lg:px-32 xl:px-60">
             <div className="mh-section w-full">
-              <h1 className="title text-center font-semibold mb-8">
+              <h1 className="title text-white! text-center font-semibold mb-8">
                 MONSTERS
               </h1>
-              <p className="text-[#FFB833] text-center text-xl font-medium tracking-wide mb-14 px-10 max-sm:text-sm">
+              <p className="text-white text-center text-2xl font-medium tracking-wide mb-14 px-10 max-sm:text-sm">
                 Learn about your foes before the hunt! Click on any monster to explore all of them, their ecology, and more.
               </p> 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
@@ -38,14 +38,17 @@ export default function Monsters() {
                       src={`${import.meta.env.BASE_URL}/${monster.image}`} 
                       alt={monster.name} 
                       loading="lazy" 
-                      className="w-full h-auto object-cover" 
+                      className="w-full h-auto object-cover transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,184,51,0.8)]"
                     />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h2 className="text-[#FFB833] text-3xl font-bold mb-2">{monster.name}</h2>
-                      <p className="text-white text-lg italic">
-                        {monster.title}
-                      </p>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex flex-col py-3 text-shadow items-center justify-center justify-items-center w-full h-full shade">
+                        <h2 className="text-white text-3xl font-bold mb-2">{monster.name}</h2>
+                        <p className="text-white text-lg italic">
+                          {monster.title}
+                        </p>
+                      </div>
                     </div>
+
                   </a>
                 ))}
               </div>

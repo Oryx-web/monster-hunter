@@ -15,11 +15,11 @@ export default function Introduction({ contentRef }) {
               loading='lazy' 
             />
             <div className="py-[5%]! mh-section w-[70%] flex flex-col items-center justify-center justify-items-center">
-              <h1 className="title text-center font-semibold">
+              <h1 className="title text-white! text-center font-semibold">
                 HUNTER GUIDE
               </h1>
               <div className="w-[60%] flex flex-col items-center justify-center justify-items-center">
-                <p className="text-[#FFB833] text-center text-wrap text-2xl font-medium tracking-wide max-sm:text-xs mb-8">
+                <p className="text-white text-center text-wrap text-2xl font-medium tracking-wide max-sm:text-xs mb-8">
                   Welcome, Hunter! Access detailed information about large and small monsters, weapons and armors.
                 </p>
               </div>

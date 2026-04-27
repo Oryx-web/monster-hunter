@@ -1,36 +1,29 @@
-/* eslint-disable react/prop-types */
 import { useMemo, useState, useEffect, useRef } from "react";
 
 const DEFAULT_ITEMS = [
   {
-    name: "Great Sword",
-    role: "Heavy blade",
-    image: "weapons.webp",
-    accent: "#FFB833",
+    name: "Essentials",
+    role: "Prepare for the hunt",
+    text: "Stock up on potions, traps, and more to ensure your success",
+    image: "icons/MHW-Felyne_Icon.svg",
   },
   {
-    name: "Rathalos",
-    role: "King of the Skies",
-    image: "rathalos.webp",
-    accent: "#FF4545",
+    name: "Weapons",
+    role: "Forge offense",
+    text: "Master the art of combat with various weapon types",
+    image: "weapons/great-sword-Icon-White.svg",
+  },
+  {
+    name: "Monsters",
+    role: "Deadly foes",
+    text: "Learn about your hunt targets, their ecology, and more",
+    image: "icons/MHW-Rathalos_Icon.svg",
   },
   {
     name: "Armor Sets",
     role: "Forge defense",
-    image: "armors.png",
-    accent: "#7FE0A4",
-  },
-  {
-    name: "Hunter Tools",
-    role: "Prepare the hunt",
-    image: "middle_logo.png",
-    accent: "#D8C29A",
-  },
-  {
-    name: "Weapon Tree",
-    role: "Upgrade path",
-    image: "weapons.png",
-    accent: "#84C7FF",
+    text: "Forge powerful armor sets from monster materials",
+    image: "armors/Head_Icon_White.svg",
   },
 ];
 
@@ -38,16 +31,15 @@ const wrapIndex = (value, length) => (value + length) % length;
 
 export default function CircularScroll({ items = DEFAULT_ITEMS }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [rotation, setRotation] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const selectedItem = items[selectedIndex];
 
   const radialItems = useMemo(() => {
     const step = 360 / items.length;
 
     return items.map((item, index) => {
-      const offset = wrapIndex(index - selectedIndex, items.length);
-      const normalizedOffset =
-        offset > items.length / 2 ? offset - items.length : offset;
-      const angle = normalizedOffset * step - 90;
+      const angle = index * step - 90;
       const isSelected = index === selectedIndex;
 
       return {
@@ -56,7 +48,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
         angle,
         isSelected,
         scale: isSelected ? 1.18 : 0.82,
-        opacity: Math.abs(normalizedOffset) > 2 ? 0.42 : 0.9,
+        opacity: isSelected ? 1 : 0.7,
       };
     });
   }, [items, selectedIndex]);
@@ -65,58 +57,58 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
     setSelectedIndex((current) => wrapIndex(current + direction, items.length));
   };
 
-const radialRef = useRef(null);
+  const radialRef = useRef(null);
 
-useEffect(() => {
-  const el = radialRef.current;
+  const step = 360 / items.length;
 
-  const wheelHandler = (e) => {
-    e.preventDefault();
+  const TARGET_ANGLE = 180; // top position
 
-    if (e.deltaY > 0) {
-      setSelectedIndex((prev) => (prev + 1) % radialItems.length);
-    } else {
-      setSelectedIndex((prev) =>
-        (prev - 1 + radialItems.length) % radialItems.length
-      );
-    }
-  };
+  useEffect(() => {
+    const el = radialRef.current;
 
-  el.addEventListener("wheel", wheelHandler, { passive: false });
+    const wheelHandler = (e) => {
+      e.preventDefault();
 
-  return () => el.removeEventListener("wheel", wheelHandler);
-}, [radialItems.length]);
+      // 🚫 BLOCK SPAM HERE
+      if (isAnimating) return;
 
-const handleWheel = (e) => {
-  e.stopPropagation();    // stops bubbling to window
+      setIsAnimating(true);
 
-  if (e.deltaY > 0) {
-    setSelectedIndex((prev) => (prev + 1) % radialItems.length);
-  } else {
-    setSelectedIndex((prev) =>
-      (prev - 1 + radialItems.length) % radialItems.length
-    );
-  }
-};
+      if (e.deltaY > 0) {
+        setSelectedIndex((prev) => (prev + 1 + items.length) % items.length);
+        setRotation((prev) => prev - step);
+      } else {
+        setSelectedIndex((prev) => (prev - 1 + items.length) % items.length);
+        setRotation((prev) => prev + step);
+      }
+
+      // ⏱ unlock after animation finishes
+      setTimeout(() => setIsAnimating(false), 500);
+    };
+
+    el.addEventListener("wheel", wheelHandler, { passive: false });
+    return () => el.removeEventListener("wheel", wheelHandler);
+  }, [items.length, isAnimating]);
 
   return (
     <section
       id="loadout"
-      className="relative w-full overflow-hidden bg-[#15110d] px-4 py-[20%] text-white sm:px-8 lg:px-16 max-md:hidden"
+      className="relative flex items-center justify-center justify-items-center w-full overflow-hidden bg-[#15110d] px-4 py-[10%] text-white sm:px-8 lg:px-16 max-md:hidden ripped z-52"
       aria-label="Hunter radial menu"
     >
       <div
         className="absolute inset-0 bg-cover bg-center opacity-25"
-        style={{ backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')` }}
+        style={{
+          backgroundImage: `url('${import.meta.env.BASE_URL}background.webp')`,
+        }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,184,51,0.18),rgba(10,8,6,0.96)_58%)]" />
-
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[minmax(320px,0.95fr)_minmax(320px,1fr)]">
+      <div className="relative grid lg:max-w-7xl items-center lg:gap-30 lg:grid-cols-[minmax(320px,1fr)_minmax(320px,1fr)]">
         <div className="mh-section m-0">
           <p className="text-sm uppercase tracking-[0.22em] text-[#D8C29A]">
             Guild radial interface
           </p>
-          <h2 className=" mt-3 text-3xl font-bold sm:text-5xl text-[#FFB833]">
+          <h2 className=" mt-3 text-3xl font-bold sm:text-5xl text-white">
             HUNTER LOADOUT
           </h2>
           <div className="mt-8 flex items-center gap-4">
@@ -126,28 +118,25 @@ const handleWheel = (e) => {
               alt={selectedItem.name}
             />
             <div>
-              <h3 className="text-3xl font-bold text-[#FFB833] text-outline">
+              <h3 className="text-3xl font-bold text-white text-outline">
                 {selectedItem.name}
               </h3>
-              <p className="mt-2 text-lg text-[#F2E4C7]">{selectedItem.role}</p>
+              <p className="mt-2 text-lg text-white">{selectedItem.role}</p>
             </div>
           </div>
-          <p className="mt-8 max-w-xl text-base leading-7 text-[#F2E4C7]">
-            Spin through hunt targets, equipment, and prep tools with a radial
-            menu styled around carved metal, warm guild light, and parchment
-            paneling.
+          <p className="mt-8 max-w-xl text-xl leading-7 text-white">
+            {selectedItem.text}
           </p>
         </div>
-
         <div
           ref={radialRef}
           id="noscroll"
-          className="relative mx-auto aspect-square w-full max-w-[560px] outline-none"
+          className="relative mx-auto aspect-square w-full max-w-[560px] outline-none z-52"
           role="listbox"
           tabIndex={0}
           aria-activedescendant={`radial-item-${selectedIndex}`}
-          onWheel={handleWheel}
         >
+          <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 w-2 h-16 bg-[#FFB833] rounded-r-full shadow-[0_0_10px_rgba(255,184,51,0.8)]" />
           <div className="absolute inset-[8%] rounded-full border border-[#FFB833]/40 bg-black/35 shadow-[0_0_55px_rgba(255,184,51,0.18)]" />
           <div className="absolute inset-[20%] rounded-full border-2 border-dashed border-[#8B7355]/70" />
           <div className="absolute left-1/2 top-1/2 h-[36%] w-[36%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#FFB833] bg-[#20150d]/90 p-8 shadow-[inset_0_0_30px_rgba(255,184,51,0.22),0_0_30px_rgba(0,0,0,0.6)]">
@@ -159,35 +148,43 @@ const handleWheel = (e) => {
             />
           </div>
 
-          {radialItems.map((item) => (
-            <button
-              id={`radial-item-${item.index}`}
-              key={item.name}
-              type="button"
-              role="option"
-              aria-selected={item.isSelected}
-              className="absolute left-4/7 top-4/7 grid h-[20%] w-[20%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 bg-[#1a1a1a]/90 p-2 transition-all duration-300 focus-visible:outline-offset-4 focus-visible:outline-[#FFB833]"
-              style={{
-                transform: `translate(-50%, -50%) rotate(${item.angle}deg) translateY(-185%) rotate(${-item.angle}deg) scale(${item.scale})`,
-                borderColor: item.isSelected ? item.accent : "rgba(255,184,51,0.45)",
-                boxShadow: item.isSelected
-                  ? `0 0 28px ${item.accent}, inset 0 0 18px rgba(255,255,255,0.16)`
-                  : "0 8px 28px rgba(0,0,0,0.45)",
-                opacity: item.opacity,
-              }}
-              onClick={() => setSelectedIndex(item.index)}
-            >
-              <img
-                className="h-full w-full rounded-full object-cover p-1"
-                src={`${import.meta.env.BASE_URL}${item.image}`}
-                alt=""
-                aria-hidden="true"
-              />
-              <span className="pointer-events-none absolute -bottom-8 hidden whitespace-nowrap rounded bg-black/80 px-2 py-1 text-xs text-[#FFB833] sm:block">
-                {item.name}
-              </span>
-            </button>
-          ))}
+          <div
+            className="absolute inset-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{ transform: `rotate(${rotation}deg)` }}
+          >
+            {radialItems.map((item) => (
+              <button
+                id={`radial-item-${item.index}`}
+                key={item.name}
+                type="button"
+                role="option"
+                aria-selected={item.isSelected}
+                className="absolute left-1/2 top-1/2 grid h-[20%] w-[20%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 transition-all duration-300 bg-[#1a1a1a]/90 p-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB833] pointer-events-none"
+                style={{
+                  transform: `
+                    rotate(${item.angle}deg)
+                    translateY(-200%)
+                    rotate(${-item.angle - rotation}deg)
+                    scale(${item.scale})`,
+                  borderColor: "rgba(255,184,51,0.45)",
+                  boxShadow: item.isSelected
+                    ? `0 0 28px, inset 0 0 18px rgba(255,255,255,0.16)`
+                    : "0 8px 28px rgba(0,0,0,0.45)",
+                  opacity: item.opacity,
+                }}
+              >
+                <img
+                  className="h-full w-full rounded-full object-cover p-1"
+                  src={`${import.meta.env.BASE_URL}${item.image}`}
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span className="pointer-events-none absolute -bottom-8 hidden whitespace-nowrap rounded bg-black/80 px-2 py-1 text-xs text-white sm:block">
+                  {item.name}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>

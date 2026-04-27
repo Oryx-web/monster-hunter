@@ -16,28 +16,28 @@ export default function Navbar({ isFixed }) {
   };
 
   return (
-    <div className={`w-full flex items-center justify-evenly z-[50] ${
+    <div className={`w-full flex items-center justify-evenly z-[50] fixed ${
       isFixed 
-        ? "fixed top-0 bg-[#4A3728]/95 border-b-2 border-[#FFB833] transition-all duration-300" 
-        : "absolute mt-[10%] sm:m-0 sm:pt-[3%] 2xl:pt-[2%] transition-all duration-300"
+        ? "fixed top-0 bg-black/50 transition-all duration-300 py-7" 
+        : "absolute sm:py-[3%] 2xl:py-[2%] transition-all duration-300 hero-fade"
     }`}>
       <img
-        className={`hidden drop-shadow-[0_0_10px_rgba(0,0,0,0.5)] sm:p-0 sm:block ${
+        className={`hidden drop-shadow-[0_0_10px_rgba(0,0,0,0.5)] lg:block ${
           isFixed ? "w-[15%]": "w-[20%]"
         }`}
         src={`${import.meta.env.BASE_URL}/logo.png`}
         alt="MonHun_Logo"
         loading='lazy' 
       />
-      <nav className="flex flex-col items-center py-[5%] sm:p-0 gap-2 sm:gap-4 sm:flex-row md:gap-7">
+      <nav className="flex flex-col items-center py-[5%] sm:p-0 gap-8 sm:flex-row md:gap-10 lg:gap-20">
         {NAV_ITEMS.map(({ label, section }) => (
-          <button 
+          <a 
             key={section}
-            className="mh-button text-base lg:text-xl tracking-wide cursor-pointer"
+            className="text-lg md:text-xl xl:text-3xl tracking-wide cursor-pointer text-shadow hover:monster-glow z-[51]"
             onClick={() => handleClick(section)}
           >
             {label}
-          </button>
+          </a>
         ))}
       </nav>
     </div>
