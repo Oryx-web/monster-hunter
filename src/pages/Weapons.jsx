@@ -95,7 +95,7 @@ export default function Weapons() {
             {selectedWeapon ? (
                 <div className="w-fit flex flex-col gap-8 xl:gap-4 sm:flex-row sm:grow md:grow-0 lg:flex-col xl:flex-row">
                     <div ref={ref} className="relative left-0 top-0 h-fit bg-[#2c2b2b93] flex flex-col items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 pt-6">
-                        <a href="/monster-hunter" className="absolute top-0 right-0 bg-[#bb3333] !text-white p-1 text-2xs font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105">Return to Home</a>
+                        <a href="/monster-hunter/" className="absolute top-0 right-0 bg-[#bb3333] !text-white p-1 text-2xs font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105">Return to Home</a>
                         <WeaponImage
                             selectedWeapon = {selectedWeapon}
                             getWeaknessIcon={getWeaknessIcon}

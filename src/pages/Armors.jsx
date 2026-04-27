@@ -101,7 +101,7 @@ export default function Armors() {
         <div ref={ref} className="flex flex-col xl:flex-row grow gap-8">
           <div className="h-max bg-[#2c2b2b93] flex flex-col grow-0 xl:grow items-center justify-start bg-cover bg-no-repeat rounded-lg shadow-md border-[10px] border-gray-700 p-6 relative">
             <a
-              href="/monster-hunter"
+              href="/monster-hunter/"
               className="absolute top-0 right-0 bg-[#bb3333] !text-white px-4 py-1 text-xl font-bold border-b-4 border-[#54361E] rounded-b-lg hover:scale-105"
             >
               Return to Home
