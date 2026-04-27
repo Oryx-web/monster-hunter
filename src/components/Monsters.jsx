@@ -14,9 +14,9 @@ const MONSTER_CARDS = [
 export default function Monsters() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <div className="mt-[-20%] flex flex-col z-10 sm:mt-[-18%] w-full">
+      <div className="mt-[-15%] flex flex-col z-10 sm:mt-[-15%] w-full">
         <div 
-          className="ripped mt-[5%] pt-[15%] w-full flex flex-col items-center justify-center justify-items-center bg-cover bg-no-repeat z-[20] before:absolute before:inset-0 before:bg-black/60 before:z-[-1]" 
+          className="ripped pt-[10%] w-full flex flex-col items-center justify-center justify-items-center bg-cover bg-no-repeat z-[20] before:absolute before:inset-0 before:bg-black/60 before:z-[-1]" 
           style={{ backgroundImage: `url('${import.meta.env.BASE_URL}home_monsters.jpg')` }}
         >
           <div className="w-full flex flex-col items-center justify-center px-4 sm:px-12 lg:px-32 xl:px-60">
@@ -36,6 +36,7 @@ export default function Monsters() {
                   >
                     <img 
                       src={`${import.meta.env.BASE_URL}/${monster.image}`} 
+                      decoding="async"
                       alt={monster.name} 
                       loading="lazy" 
                       className="w-full h-auto object-cover transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,184,51,0.8)]"

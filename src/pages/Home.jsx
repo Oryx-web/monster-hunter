@@ -26,7 +26,7 @@ export default function Home() {
       <Navbar isFixed={isFixed} />
       
       <div 
-        className="sticky top-0 h-dvh bg-cover bg-center bg-no-repeat pb-[60%] sm:pb-[55%]" 
+        className="sticky top-0 h-screen bg-cover bg-center bg-no-repeat" 
         style={{ backgroundImage: `url('${import.meta.env.BASE_URL}banner_home.webp')`}}
       />
 

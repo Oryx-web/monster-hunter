@@ -34,6 +34,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
   const [rotation, setRotation] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const selectedItem = items[selectedIndex];
+  const isAnimatingRef = useRef(false);
 
   const radialItems = useMemo(() => {
     const step = 360 / items.length;
@@ -93,7 +94,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
   return (
     <section
       id="loadout"
-      className="relative flex items-center justify-center justify-items-center w-full overflow-hidden bg-[#15110d] px-4 py-[10%] text-white sm:px-8 lg:px-16 max-md:hidden ripped z-52"
+      className="relative flex items-center justify-center justify-items-center w-full overflow-hidden bg-[#15110d] px-4 py-[10%] mt-[-5%] max-lg:mt-[-8%] text-white sm:px-8 lg:px-16 max-md:hidden ripped z-52"
       aria-label="Hunter radial menu"
     >
       <div
@@ -103,7 +104,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
         }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,184,51,0.18),rgba(10,8,6,0.96)_58%)]" />
-      <div className="relative grid lg:max-w-7xl items-center lg:gap-30 lg:grid-cols-[minmax(320px,1fr)_minmax(320px,1fr)]">
+      <div className="relative grid lg:max-w-7xl items-center max-lg:pt-[5%] lg:gap-30 lg:grid-cols-[minmax(320px,1fr)_minmax(320px,1fr)]">
         <div className="mh-section m-0">
           <p className="text-sm uppercase tracking-[0.22em] text-[#D8C29A]">
             Guild radial interface
@@ -114,6 +115,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
           <div className="mt-8 flex items-center gap-4">
             <img
               className="h-24 w-24 rounded-full border-2 border-[#FFB833] bg-black/50 object-cover p-2 monster-glow"
+              decoding="async"
               src={`${import.meta.env.BASE_URL}${selectedItem.image}`}
               alt={selectedItem.name}
             />
@@ -137,11 +139,12 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
           aria-activedescendant={`radial-item-${selectedIndex}`}
         >
           <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 w-2 h-16 bg-[#FFB833] rounded-r-full shadow-[0_0_10px_rgba(255,184,51,0.8)]" />
-          <div className="absolute inset-[8%] rounded-full border border-[#FFB833]/40 bg-black/35 shadow-[0_0_55px_rgba(255,184,51,0.18)]" />
+          <div className="absolute inset-[8%] rounded-full border border-[#FFB833]/40 bg-black/35 shadow-[0_0_25px_rgba(255,184,51,0.2)]" />
           <div className="absolute inset-[20%] rounded-full border-2 border-dashed border-[#8B7355]/70" />
           <div className="absolute left-1/2 top-1/2 h-[36%] w-[36%] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-[#FFB833] bg-[#20150d]/90 p-8 shadow-[inset_0_0_30px_rgba(255,184,51,0.22),0_0_30px_rgba(0,0,0,0.6)]">
             <img
               className="h-full w-full object-contain weapon-glow"
+              decoding="async"
               src={`${import.meta.env.BASE_URL}/mouse-scroll-wheel-icon.webp`}
               alt=""
               aria-hidden="true"
@@ -149,7 +152,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
           </div>
 
           <div
-            className="absolute inset-0 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            className="absolute inset-0 transition-transform duration-500 ease-out will-change-transform"
             style={{ transform: `rotate(${rotation}deg)` }}
           >
             {radialItems.map((item) => (
@@ -159,7 +162,7 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
                 type="button"
                 role="option"
                 aria-selected={item.isSelected}
-                className="absolute left-1/2 top-1/2 grid h-[20%] w-[20%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 transition-all duration-300 bg-[#1a1a1a]/90 p-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB833] pointer-events-none"
+                className="absolute left-1/2 top-1/2 grid h-[20%] w-[20%] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 transition-all duration-300 bg-[#1a1a1a]/90 p-2 focus-visible:outline-offset-4 focus-visible:outline-[#FFB833] pointer-events-none will-change-transform transform-gpu"
                 style={{
                   transform: `
                     rotate(${item.angle}deg)
@@ -167,16 +170,18 @@ export default function CircularScroll({ items = DEFAULT_ITEMS }) {
                     rotate(${-item.angle - rotation}deg)
                     scale(${item.scale})`,
                   borderColor: "rgba(255,184,51,0.45)",
-                  boxShadow: item.isSelected
-                    ? `0 0 28px, inset 0 0 18px rgba(255,255,255,0.16)`
-                    : "0 8px 28px rgba(0,0,0,0.45)",
-                  opacity: item.opacity,
+                  boxShadow: isAnimatingRef.current
+                    ? "none"
+                    : item.isSelected
+                      ? `0 0 28px rgba(255,184,51,0.6)`
+                      : "0 8px 28px rgba(0,0,0,0.45)"
                 }}
               >
                 <img
                   className="h-full w-full rounded-full object-cover p-1"
                   src={`${import.meta.env.BASE_URL}${item.image}`}
                   alt=""
+                  decoding="async"
                   aria-hidden="true"
                 />
                 <span className="pointer-events-none absolute -bottom-8 hidden whitespace-nowrap rounded bg-black/80 px-2 py-1 text-xs text-white sm:block">

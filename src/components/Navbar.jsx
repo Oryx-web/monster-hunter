@@ -16,7 +16,7 @@ export default function Navbar({ isFixed }) {
   };
 
   return (
-    <div className={`w-full flex items-center justify-evenly z-[50] fixed ${
+    <div className={`w-full flex items-center justify-evenly z-[100] fixed ${
       isFixed 
         ? "fixed top-0 bg-black/50 transition-all duration-300 py-7" 
         : "absolute sm:py-[3%] 2xl:py-[2%] transition-all duration-300 hero-fade"
@@ -25,11 +25,12 @@ export default function Navbar({ isFixed }) {
         className={`hidden drop-shadow-[0_0_10px_rgba(0,0,0,0.5)] lg:block ${
           isFixed ? "w-[15%]": "w-[20%]"
         }`}
+        decoding="async"
         src={`${import.meta.env.BASE_URL}/logo.png`}
         alt="MonHun_Logo"
         loading='lazy' 
       />
-      <nav className="flex flex-col items-center py-[5%] sm:p-0 gap-8 sm:flex-row md:gap-10 lg:gap-20">
+      <nav className="flex flex-col items-center md:p-0 gap-2 sm:flex-row md:gap-10 lg:gap-20">
         {NAV_ITEMS.map(({ label, section }) => (
           <a 
             key={section}

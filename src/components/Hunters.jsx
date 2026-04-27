@@ -16,9 +16,9 @@ const GEAR_SECTIONS = [
 export default function Hunters() {
   return (
     <div className="flex flex-col items-center justify-center w-full">
-      <div className="mt-[-20%] flex flex-col z-10 sm:mt-[-18%] w-full">
+      <div className="mt-[-15%] flex flex-col z-10 sm:mt-[-10%] w-full">
         <div 
-          className="ripped mt-[5%] py-[15%] mb-[-5%] w-full flex flex-col items-center justify-center justify-items-center bg-cover bg-no-repeat z-[20] before:absolute before:inset-0 before:bg-black/60 before:z-[-1]" 
+          className="ripped py-[15%] mb-[-5%] w-full flex flex-col items-center justify-center justify-items-center bg-cover bg-no-repeat z-[20] before:absolute before:inset-0 before:bg-black/60 before:z-[-1]" 
           style={{ backgroundImage: `url('${import.meta.env.BASE_URL}home_hunters.png')`}}
         >
           <div className="w-full flex flex-col items-center justify-center px-4 mb-[-50] sm:px-12 lg:px-32 xl:px-60">
@@ -39,6 +39,7 @@ export default function Hunters() {
                     <img 
                       src={`${import.meta.env.BASE_URL}/${section.image}`} 
                       alt={section.name} 
+                      decoding="async"
                       loading="lazy"
                       className="w-[70%] h-auto object-cover  transition-all duration-300 group-hover:drop-shadow-[0_0_10px_rgba(255,184,51,0.8)]" 
                     />
